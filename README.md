@@ -12,6 +12,11 @@ He creado un repositorio privado en GitHub llamado practicas-ISE con un archivo 
 
 ## Inicio Práctica 1
 
-Describe aquí un breve resumen de lo que has hecho en el inicio de la práctica 1. Más adelante aprenderemos a enlazar el histórico de comandos. De momento, puedes dar una breve explicación de las actividades realizadas y tomar alguna captura de pantalla de la salida producida por alguno de los comandos indicados por el profesor
+A la hora de empezar la práctica, encontré algún problema, ya que la aplicación debido a la configuración que tenia en el ordenador no me dejaba arrancar la máquina de Debian. Sin embargo esto, con auyda pude solucionarlo. Lo que tuve que hacer fue entrar en la BIOS del ordenador y cambiar algunos ajustes de la configuración del ordenador, para que de esa manera pudiera arrancar la máquina.
+
+Posteriormente con ayuda del video del profesor, pude llevar a cabo la instalación de la máquina virtual paso a paso, ademáss de manera muy útil, ya que al ser un una cosa que te puedes perder con facilidad, era muy sencillo volver atrás y poder seguir por donde me había quedado atascado. Sin embargo tras verme todo el video, complete la instalacion de la manera correcta obteniendo este resultado de manera final.
+
+<img width="1283" height="880" alt="image" src="https://github.com/user-attachments/assets/a1ce4cb5-49ae-4e8e-b51c-eafa7b033616" />
+
 
 ---
