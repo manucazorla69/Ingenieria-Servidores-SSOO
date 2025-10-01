@@ -5,7 +5,7 @@
 - *Curso:* 2025 / 2026
 ---
 
-# Sesión 1 (Fecha): 
+# Sesión 1 24/09/2025: 
 ## Creación de la bitácora
 
 He creado un repositorio privado en GitHub llamado practicas-ISE con un archivo README.md para llevar mi bitácora e invité al profesor como colaborador. Después hice un fork del repositorio bitacoras-ISE-25-26, añadí mi fichero con el enlace a mi repo y confirmé los cambios. Finalmente, envié un Pull Request para que el profesor pudiera aprobarlo e incluir mi enlace en el repositorio original.
