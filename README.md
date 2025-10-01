@@ -18,5 +18,7 @@ Posteriormente con ayuda del video del profesor, pude llevar a cabo la instalaci
 
 <img width="1283" height="880" alt="image" src="https://github.com/user-attachments/assets/a1ce4cb5-49ae-4e8e-b51c-eafa7b033616" />
 
+Tras haber hecho esto, tome una instantanea de la máquina para poder cargar el estado de la maquina guardado, por si algún dia el estado de la maquina me diera algun problema, poder tener una copia y no tener que configurar la máquina desde el principio
+
 
 ---
