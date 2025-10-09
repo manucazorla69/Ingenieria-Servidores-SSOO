@@ -51,6 +51,8 @@ Asimismo el siguiente pasó que llevamos a cabo fue la encriptación con ayuda d
 
 <img width="601" height="92" alt="image" src="https://github.com/user-attachments/assets/67251f17-a811-495b-a2ce-ad46a89e6626" />
 
-Por último en la práctica montamos el sistema de ficheros en /var libreando en primer lugar el espacio del antiguo /var y después creamos un nuevo /var y montamos
+Por último en la práctica montamos el sistema de ficheros en /var libreando en primer lugar el espacio del antiguo /var y después creamos un nuevo /var y montamos.
+
+
 <img width="664" height="749" alt="image" src="https://github.com/user-attachments/assets/97553855-3515-4243-9c2a-54dead8bffab" />
 
