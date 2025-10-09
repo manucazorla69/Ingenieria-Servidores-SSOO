@@ -35,6 +35,22 @@ En esta práctica hemos trabajado con almalinux, un sistema operativo que me res
 
 Al principio tras completar la instalación, solo teniamos creado un usuario, el root, por tanto lo primero que tuvimos que hacer fue realizar la creacion de nuestro propio usuario con contraseña. Tras esto, pudimos emepzar con la practica de verdad, en la que debiamos asignarle un LV exclusivamente al directorio /var. Para ello incluimos un nuevo disco y configuramos LVM para que /var se montara en el nuevo VL que creamos para él.
 
-Para llevar esto a cabo, hemos usado comandos que han resultado familiares de asignaturas como SO, en la que al igual que hemos tenido que hacer, se montaban y desmontaban particiones. Aunque es verdad que tambien había muchos comandos que resultaban nuevos como por ejemplo los que usamos para llevar a cabo la extensión deel VG almalinux desde el PV.
+Para llevar esto a cabo, hemos usado comandos en la terminal que han resultado familiares de asignaturas como SO, en la que al igual que hemos tenido que hacer, se montaban y desmontaban particiones. Aunque es verdad que tambien había muchos comandos que resultaban nuevos como por ejemplo los que usamos para llevar a cabo la extensión deel VG almalinux desde el volumen físico.
 
+
+# Sesión  08/10/2025
+
+## Práctica 3
+
+En la práctica, hemos llevado a cabo la configuracion de un RAID 1 a partir de una de la instantaneas que habíamos tomado en la práctica anterior. Para ello lo primero que hicimos fue con ayuda del comando fdisk, crear dos particiones de los discos fisicos de 2G que habiamos recuperado de la instantanea sdb y sdc, a los que llamamos sdb1 y sdc1. Posteriormente llevamos a cabo la creacion de un dispositivo RAID 1 a través del comando mdadm, al que llamaremos md0. Este RAID 1, nos permitirá duplicar los datos en los discos (mirroring)..
+
+Tras esto creamos el volumen físico desde el md0, y sobre esto crearemos el VG con ayuda del comando vgcreate. Este VG lo llamamos vg_raid1. Por último llevé a cabo la creación del LV llamado new-var desde el VG, y tras esto comprobé que todo fuera de manera correcta.
+<img width="553" height="260" alt="image" src="https://github.com/user-attachments/assets/6f1c889c-71fe-4a17-9b2b-6513518a7566" />
+
+Asimismo el siguiente pasó que llevamos a cabo fue la encriptación con ayuda del comando cryptsetup, aunque para ellos tuvimos primero que llevar a cabo la instalción de algunos paquetes necesarios. Modificamos después el fichero y tras esto el sistema activará el LV new_var en el arranque del sistema tras pedirnos la contraseña.
+
+<img width="601" height="92" alt="image" src="https://github.com/user-attachments/assets/67251f17-a811-495b-a2ce-ad46a89e6626" />
+
+Por último en la práctica montamos el sistema de ficheros en /var libreando en primer lugar el espacio del antiguo /var y después creamos un nuevo /var y montamos
+<img width="664" height="749" alt="image" src="https://github.com/user-attachments/assets/97553855-3515-4243-9c2a-54dead8bffab" />
 
