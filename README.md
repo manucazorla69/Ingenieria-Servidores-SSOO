@@ -56,3 +56,33 @@ Por último en la práctica montamos el sistema de ficheros en /var libreando en
 
 <img width="664" height="749" alt="image" src="https://github.com/user-attachments/assets/97553855-3515-4243-9c2a-54dead8bffab" />
 
+
+
+# Sesión 15/10/2025
+
+## Práctica 4
+
+Para poder empezar esta práctica, hemos tenido en primer lugar que cambiar el tipo de red de nuestras maquinas virtuales para poner ambas en adaptador solo de afitrión y asi permimtir la conectividad entre ellas.
+
+Posteriormente, tanto en Debian como en Alma, hemos asigando con el comando "ip addr add 192.168.56.XXX/24 dev enp0s8" a cada una de las maquinas una ip distinta para la interfaz de red enp0s8, usando la máscara de red /24.  Tras haberlo hecho, hemos comprobado que la comunicación era correcta. 
+<img width="1280" height="800" alt="debian conexiones" src="https://github.com/user-attachments/assets/4be690fc-5195-4383-8443-34d5cfe11b4f" />
+
+Después hemos tenido que modificar unos archivos en debian para intetrar un demonio en el dispositivo de red, y mediante algunos procesos de instalación y de modificación del servicio, hemos podido conectarnos desde una máquina a la otra y también a nuestro propio ordenador.
+
+Por último, hemos llevado a cabo la deshabilitación del root y el cambio de puerto meidante la modificacion de unos de los archivos que pertenecen a la configuracion del sshd, esto nos ha permitido poder acceder a la máquina mediante un ssh. En esta foto se puede ver como hemos tenido que llevar a cabo la modificación del arcvhio para hacer lo anteriormente dicho.
+
+
+<img width="1280" height="800" alt="modificacion debian archivo" src="https://github.com/user-attachments/assets/9bc0b1c2-2d3b-4ff2-96e3-294e2ad5dbbe" />
+
+Además, en la prática hemos podido encontrar algunas nociones que nos hablan de difetencias entre debian y alma, y también diferencias entre comandos (cuando debemos usar cada uno) que podemos encontrar entre las dos maquinas.
+
+
+
+# Sesión 22/10/2025
+
+## Práctica 5
+
+En la pŕactica de hoy hemos atendido a una lección relacionada con las copias de seguridad y Git 
+
+
+
