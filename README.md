@@ -85,4 +85,27 @@ Además, en la prática hemos podido encontrar algunas nociones que nos hablan d
 En la pŕactica de hoy hemos atendido a una lección relacionada con las copias de seguridad y Git 
 
 
+# Sesión 29/10/2025
+
+## Práctica 6
+
+En esta práctica, hemos aprendido en primer lugar, a poder conectarnos desde el pc propio a cada una de las maquinas virtuales con el comando ssh. Para ello el primero de los pasos era hacer un ssh a cada una de las maquinas seleccionando el puerto 22022, que fue el que habíamos cambiado en la practica anterior. Sin embargo, tras esto cada vez que queriamos a acceder a alguna de las maquinas virtuales, estas nos pedian la constraseña del usuario, por lo que próximo que hicimos fue generar claves en las respectivas máquinas además de en nuestro propio pc, de tal forma que después al compartir esa clave entre ellas y cambiar el parametro de uno de los ficheros del ordenador usados para el servicio ssh (/etc/ssh/sshd_config) para que por defecto no pidiera la constraseña al acceder (PasswordAuthentication no), podiamos conectarnos entre las maquinas (excepto desde las virtuales al anfitrión). 
+En la imagen podemos ver un ejemplo de como nos conectamos desde el pc propio a debian a traves de ssh, y ademas podemos apreciar como no nos pide la contraseña del usuario al establecer la conexión porque hemos compartido la clave pública desde el anfitrión a debian (si usas Windows no te dejara enviar las claves públicas directamente, por lo que tenemos que copiar la clave pública del ordenador y pegarla en el fichero authtorized_keys de la máquina a la que queramos conectarnos)
+<img width="735" height="324" alt="imagen" src="https://github.com/user-attachments/assets/93e9482b-7802-438a-90be-9f81007c240c" />
+
+
+También vimos de manera express que había otras maneras de permitir y restringir usuarios a traves del acceso mediante ssh modificando en el fichero anteriormente mencionado (/etc/ssh/sshd_config) los parámetros respectivos a AllowUser. Asimismo vimos el uso de fail2ban en alma desde el cual creabamos una jaula de tal manera que este nos permitía monitorizar los accesos que se hacian mediante el sshd de tal manera que podía bloquear ataques maliciosos e IPs.
+
+
+Después vimos algunas utilidades (screen y tmux) de ambas máquinas que nos permitian recuperar sesiones que habíamos dejado abiertas y que han sido cerradas inesperadamente o por fuerza bruta.
+
+
+POr último vimos como se hacía la instalación del servidor web (LAMP), para ello instalamos la pila LAMP entera a través del comando "dnf install httpd php mariadb mariadb-server php-mysqlnd" sin embargo este contiene muchos paquetes distintos por lo que es necesario configurar y habilitar los servivios de cada uno de los paquetes con ayuda del comando "systemctl [status | enable | start] <paquete_que_queramos_comprobar>". Tras haber comprobado los paquetes, modificamos el fichero /var/www/html/index.php con el fin de crear una página web en php, y tras hacerlo obtenemos este resultado al buscar la ip del ordenador en el buscador.
+<img width="990" height="515" alt="imagen" src="https://github.com/user-attachments/assets/9cf14ec6-8f56-40b6-8662-084d4a596a50" />
+
+
+# Sesión 5/11/2025
+
+## Práctica 7
+
 
