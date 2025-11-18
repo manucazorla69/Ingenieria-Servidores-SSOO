@@ -108,4 +108,87 @@ POr último vimos como se hacía la instalación del servidor web (LAMP), para e
 
 ## Práctica 7
 
+En esta práctica, hemos llevado a cabo una partición del disco, tal y como hicimos en la primera práctica. Es decir, para comenzar la práctica hemos hecho lo mismo que hicimos en las primeras prácticas a modo de recordartorio. 
+Además hemos, estado viendo que es la monitorización y observación, y hemos visto de la misma manera muchas aplicaciones que nos facilitan hacer eso. Aunque en esta práctica nos hemos centrado mas en  Zabbix.
+
+Esta clase, ha sido un poco más teorica, sin embargo tenemos que realizar un ejercicio de monitorización desde Zabbix en debian a alma, a través de shh y http.
+
+# Sesión 12/11/2025
+
+## Práctica 8
+
+Durante esta sesión de prácticas hemos tenido tiempo para llevar a cabo la realización del ejercicio anteriormente comentado en la práctica de la semana 7.
+Para llevar a cabo este ejercicio lo que tenemos que hacer en primer lugar, es agregar el repositorio de Zabbix 7.4 a la
+máquina de Debian a través de los siguientes comandos:
+
+wget https://repo.zabbix.com/zabbix/7.4/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.4+debian13_all.deb
+sudo dpkg -i zabbix-release_latest_7.4+debian13_all.deb
+sudo apt update
+
+Posteriormente, instalamos Zabbix Server, frontend y agente a través de este comando:​
+
+sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf
+zabbix-agent
+
+Siguiendo el guion que proporciona la página oficial de Zabbix, accedemos a la base de datos de MariaDB que previamente habíamos instalado. Tras acceder a ella, creamos la tabla de datos de Zabbix, en la cuál creamos el usuario “zabbix” al que podemos acceder con la contraseña “practicas,ise”. Asimismo, le otorgamos todos los privilegios a dicho usuario y cerramos la base de datos. Todo ello lo llevamos a cabo con estos comandos:
+​
+sudo mysql -u root -p ← Acceder a la base de datos dde MariaDB
+DROP DATABASE IF EXISTS zabbix; ← Dropear por si acaso existe
+CREATE DATABASE zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+CREATE USER 'zabbix'@'localhost' IDENTIFIED BY 'practicas,ise';
+GRANT ALL PRIVILEGES ON zabbix.* TO 'zabbix'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+
+Tras esto, importamos el esquema en la base de datos a través del comando:​
+
+sudo zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -u zabbix -pzabbix
+
+Para terminar con la instalación en Debian 13 de Zabbix, es necesario modificar uno de los documentos que se originan en el directorio /etc/zabbix/. Lo que hacemos a continuación es modificar el archivo /etc/zabbix/zabbix_server.conf, de tal manera que modificamos las líneas del mismo de esta manera:​
+​
+DBName=zabbix
+DBUser=zabbix
+DBPassword=practicas,ise
+
+Hacemos esto porque los datos que se introducen en la creación de tablas en MariaDB deben concordar con los datos que se encuentran en el documento, es decir, el nombre de usuario y la contraseña que elegimos cuando creamos la tabla de Zabbix en MariaDB deben ser los mismos que aparezcan en dicho documento.
+
+Tras esto, se finaliza la parte de instalación de Zabbix casi al completo, ya que solo queda buscar la IP que tenemos asignada a nuestra máquina de Debian (en nuestro caso,192.168.56.105) en internet, a través de http y la ruta /zabbix → http://192.168.56.105/zabbix
+<img width="1126" height="646" alt="imagen" src="https://github.com/user-attachments/assets/e43dde49-3543-46a6-a99f-7af7f34352e9" />
+
+
+Al acceder a dicha página, nos aparecerá un inicio de sesión en Zabbix que nos permitirá completar la instalación del mismo. Aunque, deberemos de logearnos posteriormente con  usuario: Admin y contraseña: zabbix que son los que propone Zabbix por defecto.Ahora, deberemos modificar los ficheros de Zabbix, en concreto el fichero /etc/zabbix/zabbix_agentd.conf y tenemos que modifcar las líneas en las que pone Server, ServerActive y Hostname y dejarlo de esta manera:
+
+Server=127.0.0.1
+ServerActive=127.0.0.1
+Hostname=Zabbix server
+
+Y posteriormente se reiniciará el agente a través del comando:
+
+sudo systemctl restart zabbix-agent
+
+Ahora es necesario crear un equipo dentro de la interfaz web de Zabbix, para ello le pondremos el nombre de AlmaLinux y la IP de la misma, además de las plantillas Linux by Zabbix agent y Apache by Zabbix agent.​
+Tras esto hacemos un cambio a la máquina de alma, en la que deberemos de instalar el agente 2 de Zabbix a través de los comandos:​
+
+sudo rpm -Uvh
+https://repo.zabbix.com/zabbix/7.4/rhel/9/x86_64/zabbix-release-7.4-1.el9.noarch.rpm
+sudo dnf clean all
+sudo dnf install zabbix-agent2
+
+Y configuramos el agente de la misma manera que hemos hecho en Debian, es decir modificando el archivo /etc/zabbix/zabbix_agent2.conf y cambiando el Server, ServerActive y Hostname de tal manera:​
+
+Server=192.168.56.105
+ServerActive=192.168.56.105
+Hostname=AlmaLinux
+
+Antes de terminar es necesario abrir el puerto 10050 de Alma, que será el necesario para poder establecer una monitorización a través de Zabbix. Esto lo haremos a través de estos comandos:
+
+sudo firewall-cmd --add-port=10050/tcp --permanent
+sudo firewall-cmd --reload
+
+Por último para establecer el servidor ssh y el http es necesario en dicho host que hemos creado específico para Alma (llamado AlmaLinux) añadir items de monitorización, los cuales serán ambos simple check con claves net.tcp.service[ssh,192.168.56.110,22022] (con puerto 22022 como tenemos en las máquinas) y net.tcp.service[http,192.168.56.110,80] respectivamente.
+
+Con todo lo anterior, obtenemos esto si por ejemplo monitorizamos los mensajes enviados
+desde Alma (haciendo un ping a Debian)
+<img width="1245" height="431" alt="imagen" src="https://github.com/user-attachments/assets/543a53d7-ceb5-4aaa-859b-5a650ceef509" />
+
 
