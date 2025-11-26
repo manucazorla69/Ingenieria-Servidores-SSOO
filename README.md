@@ -212,3 +212,5 @@ Después de esto, será necesario instalar algunas herramientas de hhtpd con el 
 Por último, hemos llevado a cabo trabajos con dockers enfocado en el uso de Jmter 
 <img width="954" height="932" alt="Captura desde 2025-11-19 17-02-39" src="https://github.com/user-attachments/assets/ed1ece14-3d47-442b-8039-4d18dabf266e" />
 
+
+Además de la práctica, hemos llevado a cabo la realizacion de un ejercicio del guión, que nos pertmite realizar una benchmark de alma, aunque para ello es necesario que descarguemos la interfazz gráfica en nuestro ordenador própio, y que tras esto lo pasemos a alma y ejecutemos el benchmark, que podemos ver con el ordenador própio a traves de un archivo html, los resultados del mismo 
