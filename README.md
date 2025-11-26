@@ -192,3 +192,23 @@ desde Alma (haciendo un ping a Debian)
 <img width="1245" height="431" alt="imagen" src="https://github.com/user-attachments/assets/543a53d7-ceb5-4aaa-859b-5a650ceef509" />
 
 
+# Sesión 19/11/2025
+
+## Práctica 9
+
+En esta práctica, hemos conocido que es el benchmarking y alguno de sus usos. Para ello, vimos algunas aplicaciones que tenian disponibilidad para el uso de benchamrkings como Phoronix, ab y Jmeter, aunque la práctica fue mas enfocada en el uso de Jmeter. Además de dichas aplicaciones, estuvimos viendo una breve introdución a los dockers, y a algunas de las ventajas que estos nos pueden aportar.
+
+Tras esa breve introducción a la práctica, llebamos a cabo la instalación de Jmeter y haremos una breve comprobación de benchmark para mnuestro ordenador
+<img width="950" height="934" alt="Captura desde 2025-11-19 15-52-00" src="https://github.com/user-attachments/assets/9d4c0abc-5fba-4a3c-a1cf-339006643ca6" />
+
+Esta aplicación, nos permitirá conocer algunos benchmarks de nuestro ordenador y además nos dara una comparación de las características del mismo frente a otros ordenadores que dicha aplicación tiene guardados desde 2011 
+<img width="950" height="934" alt="Captura desde 2025-11-19 15-59-11" src="https://github.com/user-attachments/assets/974eca58-1eca-4d07-bbfb-a4c30ea8d368" />
+
+
+Después de esto, será necesario instalar algunas herramientas de hhtpd con el propósito de comprobar la velocidad que tiene nuestro ordenador, por ejemplo, probamos a eviarle a la ip de alma 50 peticiones por parte de 5 usuarios, para ver cuanto es el tiempo que tarda nuestro ordenador en llevar a cabo dichas peticiones.
+
+<img width="945" height="933" alt="Captura desde 2025-11-19 16-03-44" src="https://github.com/user-attachments/assets/f41cdf3d-e7ca-4522-9c4c-597d1638f101" />
+
+Por último, hemos llevado a cabo trabajos con dockers enfocado en el uso de Jmter 
+<img width="954" height="932" alt="Captura desde 2025-11-19 17-02-39" src="https://github.com/user-attachments/assets/ed1ece14-3d47-442b-8039-4d18dabf266e" />
+
