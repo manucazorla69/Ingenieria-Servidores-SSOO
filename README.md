@@ -38,7 +38,7 @@ Al principio tras completar la instalación, solo teniamos creado un usuario, el
 Para llevar esto a cabo, hemos usado comandos en la terminal que han resultado familiares de asignaturas como SO, en la que al igual que hemos tenido que hacer, se montaban y desmontaban particiones. Aunque es verdad que tambien había muchos comandos que resultaban nuevos como por ejemplo los que usamos para llevar a cabo la extensión deel VG almalinux desde el volumen físico.
 
 
-# Sesión  08/10/2025
+# Sesión 3 08/10/2025
 
 ## Práctica 3
 
@@ -58,7 +58,7 @@ Por último en la práctica montamos el sistema de ficheros en /var libreando en
 
 
 
-# Sesión 15/10/2025
+# Sesión 4 15/10/2025
 
 ## Práctica 4
 
@@ -78,14 +78,14 @@ Además, en la prática hemos podido encontrar algunas nociones que nos hablan d
 
 
 
-# Sesión 22/10/2025
+# Sesión 5 22/10/2025
 
 ## Práctica 5
 
 En la pŕactica de hoy hemos atendido a una lección relacionada con las copias de seguridad y Git 
 
 
-# Sesión 29/10/2025
+# Sesión 6 29/10/2025
 
 ## Práctica 6
 
@@ -104,7 +104,7 @@ POr último vimos como se hacía la instalación del servidor web (LAMP), para e
 <img width="990" height="515" alt="imagen" src="https://github.com/user-attachments/assets/9cf14ec6-8f56-40b6-8662-084d4a596a50" />
 
 
-# Sesión 5/11/2025
+# Sesión 7 5/11/2025
 
 ## Práctica 7
 
@@ -113,9 +113,9 @@ Además hemos, estado viendo que es la monitorización y observación, y hemos v
 
 Esta clase, ha sido un poco más teorica, sin embargo tenemos que realizar un ejercicio de monitorización desde Zabbix en debian a alma, a través de shh y http.
 
-# Sesión 12/11/2025
+# Sesión 8 12/11/2025
 
-## Práctica 8
+## Práctica 3
 
 Durante esta sesión de prácticas hemos tenido tiempo para llevar a cabo la realización del ejercicio anteriormente comentado en la práctica de la semana 7.
 Para llevar a cabo este ejercicio lo que tenemos que hacer en primer lugar, es agregar el repositorio de Zabbix 7.4 a la
@@ -192,9 +192,9 @@ desde Alma (haciendo un ping a Debian)
 <img width="1245" height="431" alt="imagen" src="https://github.com/user-attachments/assets/543a53d7-ceb5-4aaa-859b-5a650ceef509" />
 
 
-# Sesión 19/11/2025
+# Sesión 9 19/11/2025
 
-## Práctica 9
+## Práctica 4
 
 En esta práctica, hemos conocido que es el benchmarking y alguno de sus usos. Para ello, vimos algunas aplicaciones que tenian disponibilidad para el uso de benchamrkings como Phoronix, ab y Jmeter, aunque la práctica fue mas enfocada en el uso de Jmeter. Además de dichas aplicaciones, estuvimos viendo una breve introdución a los dockers, y a algunas de las ventajas que estos nos pueden aportar.
 
@@ -213,4 +213,26 @@ Por último, hemos llevado a cabo trabajos con dockers enfocado en el uso de Jmt
 <img width="954" height="932" alt="Captura desde 2025-11-19 17-02-39" src="https://github.com/user-attachments/assets/ed1ece14-3d47-442b-8039-4d18dabf266e" />
 
 
-Además de la práctica, hemos llevado a cabo la realizacion de un ejercicio del guión, que nos pertmite realizar una benchmark de alma, aunque para ello es necesario que descarguemos la interfazz gráfica en nuestro ordenador própio, y que tras esto lo pasemos a alma y ejecutemos el benchmark, que podemos ver con el ordenador própio a traves de un archivo html, los resultados del mismo 
+Además de la práctica, hemos llevado a cabo la realizacion de un ejercicio del guión, que nos pertmite realizar una benchmark de alma, aunque para ello es necesario que descarguemos la interfaz gráfica en nuestro ordenador própio, y que tras esto lo pasemos a alma y ejecutemos el benchmark, que podemos ver con el ordenador própio a traves de un archivo html, los resultados del mismo 
+
+
+
+
+
+# Sesión 10 26/11/2025
+
+## Práctica 4
+
+
+En esta práctica, hemos partido desde la aplicación que instalamos (como ejercicio de la práctica anterior). 
+En primer lugar, lo que hicimos fue desde dicha aplicación crear un gestor de autorizacion http, de tal manera que con los datos que se nos proporcionaban teniamos que rellenar una serie de paramétros que llevaran a cabo dicho gestor, como por ejemplo la url base, para la cual ibamos a usar la ip de debian añadiendo :3000 al final de la misma. Tras esto, deberiamos de llevar a cabo la petición http que configurariamos de la siguiente manera.
+<img width="880" height="518" alt="imagen" src="https://github.com/user-attachments/assets/d105bdc8-31ab-44fc-9859-added71af2e2" />
+
+Después de todo esto, ejecutaremos el comando docker exec -it ise-p4app-mongodb-2 mongosh con el fin de acceder al contenedor de la práctica 4 con la consola de mongosh abierta. En ella ejecutaremos estos comandos, que nos permitiran conocer una lista de usuarios que pertenecen a dicha base de datos. Cogeremos uno de los usuarios junto con sus contraseñas, y lo añadiremos a dicha app (añdiendo un gestor de cabecera http), y añadiremos un extractor de expresiones regualares que usaremos para guardar el token que cuando dicho usuario pide la petición para conocer datos ha de meterse. Para terminar esta parte añadiremos un árbol de resultados para obtener los resultados de las peticiones que vamos a lanzar con dicho usuario. En este momento contemplamos que cuando un usuaior mete su contraseña correcta, en el árbol de expresiones su login sera correcto, pero no lo sera en caso de que la contraseña no sea correcta.
+Todo lo realizado hasta el momento quedaria así:
+<img width="861" height="492" alt="imagen" src="https://github.com/user-attachments/assets/a612e645-8e80-4f61-921c-ccf5b20e008b" />
+
+Después de esto, realizaremos a traves de estos comandos crearemos un plan de pruebas (hay que ejecutar tambien sudo dnf install mc) 
+<img width="902" height="449" alt="imagen" src="https://github.com/user-attachments/assets/825703b2-f571-4b38-aa42-9159cc7df8d0" />
+<img width="892" height="139" alt="imagen" src="https://github.com/user-attachments/assets/e0475d23-26de-4193-b99e-998e155e64e5" />
+
