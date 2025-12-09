@@ -28,7 +28,7 @@ Tras haber hecho esto, tome una instantanea de la máquina para poder cargar el 
 
 # Sesion 2 01/10/2025
 
-## Prática 2
+## Prática 1
 
 En esta práctica hemos trabajado con almalinux, un sistema operativo que me resultaba nuevo. Tras su instalación, debimos instalar una nueva versión de la maquina virtual, a una version mas moderna, ya que sino podriamos encontrarnos con problemas y que no funcionara bien la misma. Sin embargo tras la instalacion de la misma, comenzamos con la instalación del nuevo sistema operativo.
 
@@ -40,7 +40,7 @@ Para llevar esto a cabo, hemos usado comandos en la terminal que han resultado f
 
 # Sesión 3 08/10/2025
 
-## Práctica 3
+## Práctica 1
 
 En la práctica, hemos llevado a cabo la configuracion de un RAID 1 a partir de una de la instantaneas que habíamos tomado en la práctica anterior. Para ello lo primero que hicimos fue con ayuda del comando fdisk, crear dos particiones de los discos fisicos de 2G que habiamos recuperado de la instantanea sdb y sdc, a los que llamamos sdb1 y sdc1. Posteriormente llevamos a cabo la creacion de un dispositivo RAID 1 a través del comando mdadm, al que llamaremos md0. Este RAID 1, nos permitirá duplicar los datos en los discos (mirroring)..
 
@@ -60,7 +60,7 @@ Por último en la práctica montamos el sistema de ficheros en /var libreando en
 
 # Sesión 4 15/10/2025
 
-## Práctica 4
+## Práctica 2
 
 Para poder empezar esta práctica, hemos tenido en primer lugar que cambiar el tipo de red de nuestras maquinas virtuales para poner ambas en adaptador solo de afitrión y asi permimtir la conectividad entre ellas.
 
@@ -80,15 +80,14 @@ Además, en la prática hemos podido encontrar algunas nociones que nos hablan d
 
 # Sesión 5 22/10/2025
 
-## Práctica 5
+## Práctica 2
 
 En la pŕactica de hoy hemos atendido a una lección relacionada con las copias de seguridad y Git 
 
 
 # Sesión 6 29/10/2025
 
-## Práctica 6
-
+## Práctica 2
 En esta práctica, hemos aprendido en primer lugar, a poder conectarnos desde el pc propio a cada una de las maquinas virtuales con el comando ssh. Para ello el primero de los pasos era hacer un ssh a cada una de las maquinas seleccionando el puerto 22022, que fue el que habíamos cambiado en la practica anterior. Sin embargo, tras esto cada vez que queriamos a acceder a alguna de las maquinas virtuales, estas nos pedian la constraseña del usuario, por lo que próximo que hicimos fue generar claves en las respectivas máquinas además de en nuestro propio pc, de tal forma que después al compartir esa clave entre ellas y cambiar el parametro de uno de los ficheros del ordenador usados para el servicio ssh (/etc/ssh/sshd_config) para que por defecto no pidiera la constraseña al acceder (PasswordAuthentication no), podiamos conectarnos entre las maquinas (excepto desde las virtuales al anfitrión). 
 En la imagen podemos ver un ejemplo de como nos conectamos desde el pc propio a debian a traves de ssh, y ademas podemos apreciar como no nos pide la contraseña del usuario al establecer la conexión porque hemos compartido la clave pública desde el anfitrión a debian (si usas Windows no te dejara enviar las claves públicas directamente, por lo que tenemos que copiar la clave pública del ordenador y pegarla en el fichero authtorized_keys de la máquina a la que queramos conectarnos)
 <img width="735" height="324" alt="imagen" src="https://github.com/user-attachments/assets/93e9482b-7802-438a-90be-9f81007c240c" />
@@ -106,7 +105,7 @@ POr último vimos como se hacía la instalación del servidor web (LAMP), para e
 
 # Sesión 7 5/11/2025
 
-## Práctica 7
+## Práctica 3
 
 En esta práctica, hemos llevado a cabo una partición del disco, tal y como hicimos en la primera práctica. Es decir, para comenzar la práctica hemos hecho lo mismo que hicimos en las primeras prácticas a modo de recordartorio. 
 Además hemos, estado viendo que es la monitorización y observación, y hemos visto de la misma manera muchas aplicaciones que nos facilitan hacer eso. Aunque en esta práctica nos hemos centrado mas en  Zabbix.
@@ -236,3 +235,21 @@ Después de esto, realizaremos a traves de estos comandos crearemos un plan de p
 <img width="902" height="449" alt="imagen" src="https://github.com/user-attachments/assets/825703b2-f571-4b38-aa42-9159cc7df8d0" />
 <img width="892" height="139" alt="imagen" src="https://github.com/user-attachments/assets/e0475d23-26de-4193-b99e-998e155e64e5" />
 
+
+
+# Sesión 11 02/12/2025
+
+## Práctica 
+
+En esta práctica hemos trabajado con Ansible. Esta es una herramienta de automatización que nos permite configurar y gestionar servicios en múltiples servidores mediante la ejecución de archivos de instrucciones, llamados playbooks.
+
+Para llevar a cabo la instalación de Ansible, usaremos el comando: sudo apt install ansible sshpass -y.
+
+Tras esto sera neceseario, que creemos un inventario, que sera un arhchivo donde pondremos la ip de la máquina que vamos a controlar, ademas de algunos parametros para ansible. Quedaría de esta manera:
+<img width="1070" height="132" alt="imagen" src="https://github.com/user-attachments/assets/2fc05d9b-b0a9-44a2-85b7-e574c09b738f" />
+
+Sin embargo, necesitamos crear tambien un playbook en formato yaml, de tal manera que pongamos en el mismo los comandos para instalar, configurar y arrancar un servidor web nginx. Hay que comprobar tambien que en las máquinas tenemos abierto el puerto 80 para httpd, y que este no esta siedo usado por otra cosa, como por ejemplo apache en mi caso. En caso de que sea asi, simplemente tendremos que cambiarlo para que sea nginx el que use dicho puerto. Así quedaría el archivo instalar_web.yml
+<img width="985" height="655" alt="imagen" src="https://github.com/user-attachments/assets/9a52dedd-d415-4310-88d8-f67b6c1e1141" />
+
+Ahora que ya tenemos todo configurado podemos ejecutar el comando ansible-playbook -i inventario.ini instalar_web.yml -K, y nos debe aparecer esto por consola
+<img width="1732" height="394" alt="imagen" src="https://github.com/user-attachments/assets/1ded56f4-33af-4034-9373-45cc0ca28e42" />
