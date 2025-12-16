@@ -237,9 +237,9 @@ Después de esto, realizaremos a traves de estos comandos crearemos un plan de p
 
 
 
-# Sesión 11 02/12/2025
+# Sesión 11 03/12/2025
 
-## Práctica 
+## Práctica 4
 
 En esta práctica hemos trabajado con Ansible. Esta es una herramienta de automatización que nos permite configurar y gestionar servicios en múltiples servidores mediante la ejecución de archivos de instrucciones, llamados playbooks.
 
@@ -253,3 +253,11 @@ Sin embargo, necesitamos crear tambien un playbook en formato yaml, de tal maner
 
 Ahora que ya tenemos todo configurado podemos ejecutar el comando ansible-playbook -i inventario.ini instalar_web.yml -K, y nos debe aparecer esto por consola
 <img width="1732" height="394" alt="imagen" src="https://github.com/user-attachments/assets/1ded56f4-33af-4034-9373-45cc0ca28e42" />
+
+
+# Sesión 11 10/12/2025
+
+## Seminario 1
+
+En el seminario uno, hemos visto que son los certificados, y como estos pueden ayudarnos a nuestra vida laboral para despues. Entonctrabamos tres tipos de certificados, LPIC1, LPIC2 y LPCI3, aunque en nuestra sesión de prácticas nos enfoncamos sobre todo en los dos primeros. Para ello estuvimos buscando que tipo de conocimientos eran necesarios para poder sacarnos un certificado de cada uno de los tipos, y posteriormente estuvimos buscando algunas ofertas de trabajo para comprobar que había muchas de ellas que estaban relacionadas con la ingenieria de los servidores para las cuales te exigían al menos uno de los dos certificados, aunque tambien se encontraban otras para los que no te pedían niguno.
+
